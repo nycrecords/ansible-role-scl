@@ -1,0 +1,14 @@
+---
+- name: Prepare
+  hosts: all
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Generate Yum metadata cache
+      command: yum makecache
+    - name: Enable RHSCL Repos
+      command: yum-config-manager --enable "{{ item }}"
+      with_items:
+        - rhui-REGION-rhel-server-rhscl
+        - rhui-REGION-rhel-server-optional

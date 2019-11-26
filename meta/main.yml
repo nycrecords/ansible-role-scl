@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  role_name: scl
+  author: Joel Castillo
+  description: This Ansible Role installs packages from the Software Collections Repository. 
+  company: "City of New York, Department of Records and Information Services"
+  allow_duplicates: yes
+
+  license: Apache
+
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: RHEL
+    versions:
+      - 6
+      - 7
+
+  galaxy_tags:
+    - scl
+    - software-collections
+
+dependencies:
+- nycrecords.rhsm
