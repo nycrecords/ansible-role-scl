@@ -4,7 +4,7 @@
   become: true
 
   roles:
-    - role: ansible-role-rhsm
+    - role: ansible-role-scl
 
   vars:
     rhsm_username: "{{ lookup('env', 'RHSM_USERNAME') }}"
@@ -15,6 +15,9 @@
     rhsm_server_proxy_user: "{{ lookup('env', 'http_proxy_user') }}"
     rhsm_server_proxy_password: "{{ lookup('env', 'http_proxy_password') }}"
     rhsm_consumer_name: "nycrecords_{{ '%Y%m%d_%H%M%s' | strftime(ansible_date_time.epoch) }}"
+
+    packages:
+      - rh-python36-python
     
   tasks:
     - name: Disable yum plugins
